@@ -58,7 +58,7 @@ WORKDIR /var/www
 
 EXPOSE 80
 
-VOLUME ["/var/log/apache2", "/var/www", "/etc/httpd/sites-enabled/"]
+VOLUME ["/var/log/httpd", "/var/www", "/etc/httpd/sites-enabled/"]
 
 ADD assets/start /bin/start
 RUN chmod +x /bin/start
