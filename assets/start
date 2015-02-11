@@ -1,9 +1,3 @@
 #!/bin/bash
 
-mkdir -p /var/www/www/docs_pdf
-mkdir -p /var/www/www/archives
-mkdir -p /var/www/www/upload
-
-chmod 777 -R /var/www/www/docs_pdf
-chmod 777 -R /var/www/www/archives
-chmod 777 -R /var/www/www/upload
+service httpd start
