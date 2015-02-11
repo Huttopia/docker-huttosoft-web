@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir -p /var/www/docs_pdf
-mkdir -p /var/www/archives
-mkdir -p /var/www/upload
+mkdir -p /var/www/www/docs_pdf
+mkdir -p /var/www/www/archives
+mkdir -p /var/www/www/upload
 
-chmod 777 -R /var/www/docs_pdf
-chmod 777 -R /var/www/archives
-chmod 777 -R /var/www/upload
+chmod 777 -R /var/www/www/docs_pdf
+chmod 777 -R /var/www/www/archives
+chmod 777 -R /var/www/www/upload
