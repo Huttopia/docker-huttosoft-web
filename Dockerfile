@@ -19,6 +19,7 @@ RUN yum update -y \
 RUN yum update -y \
     && yum install -y \
         php5 \
+        php-mysql \
         php-apc \
         php-pear \
         php-devel \
