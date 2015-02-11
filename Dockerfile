@@ -34,32 +34,20 @@ RUN pecl install \
     xml
 
 # Config Apache
-RUN mkdir /etc/httpd/sites-enabled \
-    && rm -rf /var/www/* \
-    && sed -i "s/EnableMMAP on/EnableMMAP off/g" /etc/httpd/conf/httpd.conf \
-    && sed -i "s/EnableSendfile on/EnableSendfile off/g" /etc/httpd/conf/httpd.conf \
-    && echo "NameVirtualHosts *:80" >> /etc/httpd/conf/httpd.conf \
-    && echo "Include sites-enabled/*.conf" >> /etc/httpd/conf/httpd.conf
+RUN mkdir /etc/httpd/sites-enabled
+ADD assets/conf/httpd.conf /etc/httpd/conf/httpd.conf
 
 # Config PHP
-RUN echo "extension = apc.so" >> /etc/php.ini \
-    && echo "extension = http.so" >> /etc/php.ini \
-    && echo "extension = json.so" >> /etc/php.ini \
-    && echo "extension = dom.so" >> /etc/php.ini \
-    && sed -i "s/output_buffering = Off/output_buffering = On/g" /etc/php.ini \
-    && sed -i "s/allow_call_time_pass_reference = Off/allow_call_time_pass_reference = On/g" /etc/php.ini
-
-# Log Hutosoft
-RUN mkdir -p /var/log/huttosoft \
-    && chown -R apache:apache /var/log/huttosoft
+ADD assets/conf/php.ini /etc/php.ini
 
 # Sources
 WORKDIR /var/www
 
 EXPOSE 80
 
-VOLUME ["/var/log/httpd", "/var/www", "/etc/httpd/sites-enabled/"]
+VOLUME ["/var/log/httpd", "/var/www", "/etc/httpd/sites-enabled"]
 
+# Start
 ADD assets/start /bin/start
 RUN chmod +x /bin/start
 
