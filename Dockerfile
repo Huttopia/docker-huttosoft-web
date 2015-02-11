@@ -52,4 +52,3 @@ ADD assets/start /bin/start
 RUN chmod +x /bin/start
 
 ENTRYPOINT ["start"]
-CMD ["bash"]
