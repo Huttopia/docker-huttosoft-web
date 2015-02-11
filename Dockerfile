@@ -45,7 +45,7 @@ WORKDIR /var/www
 
 EXPOSE 80
 
-VOLUME ["/var/log/httpd", "/var/www", "/etc/httpd/sites-enabled"]
+VOLUME ["/var/www", "/etc/httpd/sites-enabled"]
 
 # Start
 ADD assets/start /bin/start
