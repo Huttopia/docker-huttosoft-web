@@ -22,7 +22,7 @@ build:
 
 start:
 	@echo "$(step) Starting $(step)"
-	@docker run --name huttosoft-web -d huttopia/huttosoft-web:latest
+	@docker run --name huttosoft-web -d -it huttopia/huttosoft-web:latest
 
 state:
 	@echo "$(step) Current state $(step)"
