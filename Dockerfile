@@ -32,7 +32,8 @@ RUN yum update -y \
 RUN pecl install \
     apc \
     json \
-    xml
+    xml \
+    xdebug
 
 # Config Apache
 RUN mkdir /etc/httpd/sites-enabled
