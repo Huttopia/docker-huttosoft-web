@@ -11,6 +11,9 @@ RUN yum update -y \
         apt-utils \
         acl \
         gcc \
+        gcc-c++ \
+        autoconf \
+        automake \
         make \
     && echo "Europe/Paris" > /etc/localtime && yum search -y tzdata && yum update -y tzdata \
     && echo 'alias ll="ls -lah --color=auto"' >> /etc/bash.bashrc
@@ -25,15 +28,16 @@ RUN yum update -y \
         php-devel \
         httpd-devel \
         pcre-devel \
-        php-xml \
-        php-pear-Spreadsheet-Excel-Writer
+        php-xml
 
 # Install Packages PECL
 RUN pecl install \
     apc \
     json \
     xml \
-    xdebug
+    OLE-1.0.0RC2 \
+    Spreadsheet_Excel_Writer-0.9.3 \
+    Xdebug
 
 # Config Apache
 RUN mkdir /etc/httpd/sites-enabled
