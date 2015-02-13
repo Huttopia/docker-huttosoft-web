@@ -10,6 +10,9 @@ __FILE__="${__DIR__}/${__BASE__}"
 setfacl -R -m u:apache:rwx -m u:root:rwx /var/www
 setfacl -dR -m u:apache:rwx -m u:root:rwx /var/www
 
+# Création dossier logs
+mkdir -p /var/www/logs/apache
+
 main () {
   /usr/sbin/httpd -DFOREGROUND
 }
