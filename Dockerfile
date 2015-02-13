@@ -26,18 +26,24 @@ RUN yum update -y \
         php-apc \
         php-pear \
         php-devel \
+        curl-devel
         httpd-devel \
         pcre-devel \
         php-xml
 
 # Install Packages PECL
-RUN pecl install \
-    apc \
-    json \
-    xml \
+RUN pecl channel-update pecl.php.net \
+    && pecl install \
+        apc \
+        json \
+        xml \
+        pecl_http-1.7.6 \
+        xdebug-2.0.0
+
+# Install Packages PEAR
+RUN pear install \
     OLE-1.0.0RC2 \
-    Spreadsheet_Excel_Writer-0.9.3 \
-    Xdebug
+    Spreadsheet_Excel_Writer-0.9.3
 
 # Config Apache
 RUN mkdir /etc/httpd/sites-enabled
