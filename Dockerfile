@@ -21,12 +21,10 @@ RUN yum update -y \
 # Install PHP & Apache
 RUN yum update -y \
     && yum install -y \
-        php5 \
         php-mysql \
-        php-apc \
         php-pear \
         php-devel \
-        curl-devel
+        curl-devel \
         httpd-devel \
         pcre-devel \
         php-xml
