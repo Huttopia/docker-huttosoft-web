@@ -23,6 +23,7 @@ RUN yum update -y \
     && yum install -y \
         php-mysql \
         php-pear \
+        php-mbstring \
         php-devel \
         curl-devel \
         httpd-devel \
